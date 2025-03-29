@@ -49,14 +49,33 @@ while guesses != 0:
 
 while True:
   try: 
-    option = input('Incorrect! You have ran out of guesses.\nWould you like to continue? (Y/N) ')
+    option.upper() = input('Incorrect! You have ran out of guesses.\nWould you like to continue? (Y/N) ')
     if option == 'Y' or option == 'N':
       break
   except: 
     print('Select a valid answer.')
 
-if option == y:
-if option == n:
+if option == 'N':
+  print('Too bad, better luck next time!')
+elif option == 'Y':
+  while count != 15:
+    count += 1
+    guess_number = int(input('\nEnter your guess: ')) 
+
+      if higher_or_lower(guess_number, number):
+        break
+
+    number = str(number).split()
+    hint = number[0]
+    print(f'Pssst.... here's a lil hint: its in the {hint}0s)
+  while True:
+    count += 1
+    guess_number = int(input('\nEnter your guess: ')) 
+
+    if higher_or_lower(guess_number, number):
+      break
+
+    
 
 
 
