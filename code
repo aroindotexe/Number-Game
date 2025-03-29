@@ -9,9 +9,11 @@ while True:
   try:
     choice = int(input('\nEnter your choice: '))
     if 1 <= choice <= 3:
-      break  
-  except:
-    print('Please enter a number between 1 and 3!')
+      break
+    else:
+      print('Please enter a number between 1 and 3!')
+  except ValueError:
+    print('Please enter a valid integer!')
 
 guesses = 0
 
@@ -42,33 +44,41 @@ count = 0
 while guesses != 0:
   count += 1
   guesses -= 1
-  guess_number = int(input('\nEnter your guess: ')) 
+  while True:
+      try:
+        guess_number = int(input('\nEnter your guess: ')) 
+        break
+      except ValueError:
+        print('Please input an integer!')
 
   if higher_or_lower(guess_number, number):
     break
 
 while True:
   try: 
-    option = input('\nYou have ran out of guesses!\nWould you like to continue? (Y/N) ')
+    option = input('\nYou have ran out of guesses!\nWould you like to continue? (Y/N) ').upper()
     if option == 'Y' or option == 'N':
       break
   except: 
     print('Select a valid answer.')
 
+additional_guesses = count + 4
+  
 if option == 'N':
   print('Too bad, better luck next time!')
 elif option == 'Y':
-  while count != guess + 4:
+  while count != additional_guesses:
     count += 1
     guess_number = int(input('\nEnter your guess: ')) 
 
     if higher_or_lower(guess_number, number):
-      break
-
-    number_str = str(number)
-    hint = number_str[0]
+        break
     
-  print(f"Pssst.... here's a lil hint: its in the {hint}0s")
+
+  number_str = str(number)
+  hint = number_str[0]
+    
+  print(f"Pssst.... here's a lil hint: it's in the {hint}0s")
   
   while True:
     count += 1
@@ -76,7 +86,6 @@ elif option == 'Y':
 
     if higher_or_lower(guess_number, number):
       break
-    
 
 
 
