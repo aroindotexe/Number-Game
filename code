@@ -1,0 +1,35 @@
+print("Welcome to the Number Guessing Game!\nI'm thinking of a number between 1 and 100.\nYou have 5 chances to guess the correct number.")
+print("Please select the difficulty level:\n1. Easy (10 chances)\n2. Medium (5 chances)\n3. Hard (3 chances)")
+
+number = random(1, 100)
+choice = input('Enter your choice: ')
+
+if choice == 1:
+  guesses = 10
+  print('Great! You have selected the Easy difficulty level.')
+if choice == 2:
+  guesses = 5
+  print('Great! You have selected the Medium difficulty level.')
+if choice == 3:
+    guesses = 3
+    print('Great! You have selected the Medium difficulty level.')
+print('Let's start the game!')
+
+count = 0
+  
+while guesses != 0:
+  count += 1
+  guess_number = int(input('Enter your guess: ')) 
+  if guess_number > number:
+    print('Incorrect! The number is less than {number}.')
+  if guess number < number:
+    print('Incorrect! The number is greater than {number}.')
+  if guess number == number:
+    print(f"Congratulations! You guessed the correct number in {count} attempts.")
+  guesses -= 1
+
+print('Incorrect! You have run out of guesses, would you like to continue?')
+  
+
+  
+  
