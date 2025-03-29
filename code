@@ -58,15 +58,15 @@ while True:
 if option == 'N':
   print('Too bad, better luck next time!')
 elif option == 'Y':
-  while count != 15:
+  while count != guess + 4:
     count += 1
     guess_number = int(input('\nEnter your guess: ')) 
 
     if higher_or_lower(guess_number, number):
       break
 
-    hint_list = str(number).split()
-    hint = hint_list[0]
+    number_str = str(number)
+    hint = number_str[0]
     
   print(f"Pssst.... here's a lil hint: its in the {hint}0s")
   
