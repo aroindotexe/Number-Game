@@ -4,7 +4,14 @@ print("Welcome to the Number Guessing Game!\nI'm thinking of a number between 1 
 
 
 number = random.randint(1, 100)
-choice = int(input('\nEnter your choice: '))
+
+while True:
+  try:
+    choice = int(input('\nEnter your choice: '))
+    if 1 <= choice <= 3:
+      break  
+  except:
+    print('Please enter a number between 1 and 3!')
 
 guesses = 0
 
@@ -19,20 +26,41 @@ if choice == 3:
     print('Great! You have selected the Hard difficulty level.')
 print("Let's start the game!")
 
+def higher_or_lower(guess_number, number):
+  if guess_number > number:
+    print(f'Incorrect! The number is less than {guess_number}.')
+    return False
+  if guess_number < number:
+    print(f'Incorrect! The number is greater than {guess_number}.')
+    return False
+  if guess_number == number:
+    print(f"Congratulations! You guessed the correct number in {count} attempts.")
+    return True
+
 count = 0
   
 while guesses != 0:
   count += 1
-  guess_number = int(input('\nEnter your guess: ')) 
-  if guess_number > number:
-    print(f'Incorrect! The number is less than {guess_number}.')
-  if guess_number < number:
-    print(f'Incorrect! The number is greater than {guess_number}.')
-  if guess_number == number:
-    print(f"Congratulations! You guessed the correct number in {count} attempts.")
   guesses -= 1
+  guess_number = int(input('\nEnter your guess: ')) 
 
-  
+  if higher_or_lower(guess_number, number):
+    break
+
+while True:
+  try: 
+    option = input('Incorrect! You have ran out of guesses.\nWould you like to continue? (Y/N) ')
+    if option == 'Y' or option == 'N':
+      break
+  except: 
+    print('Select a valid answer.')
+
+if option == y:
+if option == n:
+
+
+
+
 
   
   
